@@ -11,14 +11,16 @@ For more information see: https://grafana.com/grafana/
 
 Read the doc at https://grafana.com/docs/grafana/latest/ on how to get started.
 
-`sudo mkdir -p /var/snap/grafana-gael/common/data/plugins`
-`sudo mkdir -p /var/snap/grafana-gael/common/conf/provisioning/datasources`
-`sudo mkdir -p /var/snap/grafana-gael/common/conf/provisioning/plugins`
-`sudo mkdir -p /var/snap/grafana-gael/common/conf/provisioning/dashboards`
-`sudo mkdir -p /var/snap/grafana-gael/common/conf/provisioning/notifiers`
-`sudo mkdir -p /var/snap/grafana-gael/common/conf/provisioning/alerting`
+```
+sudo mkdir -p /var/snap/grafana-gael/common/data/plugins
+sudo mkdir -p /var/snap/grafana-gael/common/conf/provisioning/datasources
+sudo mkdir -p /var/snap/grafana-gael/common/conf/provisioning/plugins
+sudo mkdir -p /var/snap/grafana-gael/common/conf/provisioning/dashboards
+sudo mkdir -p /var/snap/grafana-gael/common/conf/provisioning/notifiers
+sudo mkdir -p /var/snap/grafana-gael/common/conf/provisioning/alerting
 
-`sudo vi /var/snap/grafana-gael/current/grafana.ini`
+sudo vi /var/snap/grafana-gael/current/grafana.ini
+```
 
 ```
 #################################### Paths ###############################
@@ -45,6 +47,9 @@ socket = /var/snap/grafana-gael/current/grafana.sock
 `sudo snap restart grafana-gael.grafana-server`
 
 To use Grafana visit http://localhost:3000/
+
+**2024-10-12**
+* v11.2.2 available on amd64
 
 **2024-06-26**
 * v11.1.0 available on amd64
