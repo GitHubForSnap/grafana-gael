@@ -1,0 +1,50 @@
+name: grafana-gael
+version: "v11.2.2"
+base: core22
+summary: Grafana
+description: |
+  The open-source platform for monitoring and observability
+
+  Grafana allows you to query, visualize, alert on and understand your metrics no matter where they are stored. Create, explore, and share dashboards with your team and foster a data-driven culture
+
+grade: stable
+confinement: strict
+
+architectures:
+  - build-on: amd64
+
+license: "AGPL-3.0-only"
+
+apps:
+  grafana-server:
+    command: launchers/grafana-server.sh
+    daemon: simple
+    install-mode: disable
+    plugs:
+      - network
+      - network-bind
+
+  grafana-cli:
+    command: launchers/grafana-cli.sh
+    plugs:
+      - network
+
+parts:
+  launchers:
+    plugin: dump
+    source: snap/local/launchers
+    organize:
+      'grafana-server.sh' : launchers/
+      'grafana-cli.sh' : launchers/
+    stage:
+      - launchers/grafana-server.sh
+      - launchers/grafana-cli.sh
+
+  grafana:
+    plugin: dump
+    source: https://dl.grafana.com/enterprise/release/grafana-enterprise_11.2.2_amd64.deb
+    source-type: deb
+    stage-packages:
+      - adduser
+      - libfontconfig1
+      - musl

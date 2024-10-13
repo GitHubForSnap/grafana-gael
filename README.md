@@ -1,0 +1,57 @@
+# [grafana-gael](https://snapcraft.io/grafana-gael)
+
+_This is NOT an original piece of work, just a snap of Grafana_
+
+The open-source platform for monitoring and observability
+Grafana allows you to query, visualize, alert on and understand your metrics no matter where they are stored. Create, explore, and share dashboards with your team and foster a data-driven culture
+
+For more information see: https://grafana.com/grafana/
+
+**Configure the server**
+
+Read the doc at https://grafana.com/docs/grafana/latest/ on how to get started.
+
+`sudo mkdir -p /var/snap/grafana-gael/common/data/plugins`
+`sudo mkdir -p /var/snap/grafana-gael/common/conf/provisioning/datasources`
+`sudo mkdir -p /var/snap/grafana-gael/common/conf/provisioning/plugins`
+`sudo mkdir -p /var/snap/grafana-gael/common/conf/provisioning/dashboards`
+`sudo mkdir -p /var/snap/grafana-gael/common/conf/provisioning/notifiers`
+`sudo mkdir -p /var/snap/grafana-gael/common/conf/provisioning/alerting`
+
+`sudo vi /var/snap/grafana-gael/current/grafana.ini`
+
+```
+#################################### Paths ###############################
+[paths]
+# Path to where grafana can store temp files, sessions, and the sqlite3 db (if that is used)
+data = /var/snap/grafana-gael/common/data
+
+# Temporary files in `data` directory older than given duration will be removed
+temp_data_lifetime = 24h
+
+# Directory where grafana can store logs
+logs = /var/snap/grafana-gael/common/data/log
+
+# Directory where grafana will automatically scan and look for plugins
+plugins = /var/snap/grafana-gael/common/data/plugins
+
+# folder that contains provisioning config files that grafana will apply on startup and while running.
+provisioning = /var/snap/grafana-gael/common/conf/provisioning
+
+# Unix socket path
+socket = /var/snap/grafana-gael/current/grafana.sock
+```
+
+`sudo snap restart grafana-gael.grafana-server`
+
+To use Grafana visit http://localhost:3000/
+
+**2024-06-26**
+* v11.1.0 available on amd64
+
+**2024-05-14**
+* v11.0.0 available on amd64
+
+**2024-04-06**
+* v10.4.1 available on amd64
+
