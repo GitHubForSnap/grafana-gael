@@ -1,5 +1,5 @@
 name: grafana-gael
-version: "v11.2.2+security-01"
+version: "v11.3.0"
 base: core22
 summary: Grafana
 description: |
@@ -42,7 +42,7 @@ parts:
 
   grafana:
     plugin: dump
-    source: https://dl.grafana.com/enterprise/release/grafana-enterprise_11.2.2+security~01_amd64.deb
+    source: https://dl.grafana.com/enterprise/release/grafana-enterprise_11.3.0_amd64.deb
     source-type: deb
     stage-packages:
       - adduser
