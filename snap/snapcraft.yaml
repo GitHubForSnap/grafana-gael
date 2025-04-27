@@ -1,5 +1,5 @@
 name: grafana-gael
-version: "v11.6.0"
+version: "v11.6.1"
 base: core24
 summary: Grafana
 description: |
@@ -42,7 +42,7 @@ parts:
 
   grafana:
     plugin: dump
-    source: https://dl.grafana.com/enterprise/release/grafana-enterprise_11.6.0_amd64.deb
+    source: https://dl.grafana.com/enterprise/release/grafana-enterprise_11.6.1_amd64.deb
     source-type: deb
     stage-packages:
       - adduser
