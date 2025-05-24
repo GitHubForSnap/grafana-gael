@@ -1,5 +1,5 @@
 name: grafana-gael
-version: "v12.0.0"
+version: "v12.0.1"
 base: core24
 summary: Grafana
 description: |
@@ -8,6 +8,7 @@ description: |
   Grafana allows you to query, visualize, alert on and understand your metrics no matter where they are stored. Create, explore, and share dashboards with your team and foster a data-driven culture
 
 grade: stable
+  #confinement: strict
 confinement: strict
 
 platforms:
@@ -20,14 +21,16 @@ apps:
     command: launchers/grafana-server.sh
     daemon: simple
     install-mode: disable
-    plugs:
-      - network
-      - network-bind
+      #    plugs:
+      #      - hugepages-control   # To allow /sys/kernel/mm/hugepages/
+      #      - network-manager     # To allow /proc/@{pid}/net/netstat
+      #      - network
+      #      - network-bind
 
   grafana-cli:
     command: launchers/grafana-cli.sh
-    plugs:
-      - network
+      #    plugs:
+      #      - network
 
 parts:
   launchers:
@@ -42,7 +45,7 @@ parts:
 
   grafana:
     plugin: dump
-    source: https://dl.grafana.com/enterprise/release/grafana-enterprise_12.0.0_amd64.deb
+    source: https://dl.grafana.com/enterprise/release/grafana-enterprise_12.0.1_amd64.deb
     source-type: deb
     stage-packages:
       - adduser
